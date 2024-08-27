@@ -2,7 +2,7 @@ using System;
 
 namespace ToDoList.Domain.Entities;
 
-public class BaseEntity
+public abstract class BaseEntity
 {
-
+    
 }
