@@ -4,5 +4,12 @@ namespace ToDoList.Domain.Entities;
 
 public class Item : BaseEntity
 {
+    public string? Title { get; set; }
+    public string? Note { get; set; }
+    public DateTime? Remind { get; set; }
+    public DateTime? DueTo { get; set; }
+    public bool Important { get; set; }
     public bool Completed { get; set; }
+    public DateTime? CompletedDate { get; set; }
+    public List? List { get; set; }
 }

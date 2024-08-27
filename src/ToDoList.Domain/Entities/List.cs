@@ -5,4 +5,6 @@ namespace ToDoList.Domain.Entities;
 public class List : BaseEntity
 {
     public string? Name { get; set; }
+    public ICollection<Item>? Items { get; set; }
+    public Group? Group { get; set; }
 }
