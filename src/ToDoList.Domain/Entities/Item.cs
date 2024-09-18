@@ -11,5 +11,5 @@ public class Item : BaseEntity
     public bool Important { get; set; }
     public bool Completed { get; set; }
     public DateTime? CompletedDate { get; set; }
-    public List? List { get; set; }
+    public Checklist? Checklist { get; set; }
 }

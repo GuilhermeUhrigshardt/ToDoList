@@ -2,7 +2,7 @@ using System;
 
 namespace ToDoList.Domain.Entities;
 
-public class List : BaseEntity
+public class Checklist : BaseEntity
 {
     public string? Name { get; set; }
     public ICollection<Item>? Items { get; set; }
