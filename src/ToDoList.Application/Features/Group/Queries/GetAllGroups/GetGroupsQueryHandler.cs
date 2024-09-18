@@ -1,12 +1,23 @@
 using System;
+using AutoMapper;
 using MediatR;
+using ToDoList.Application.Contracts;
 
 namespace ToDoList.Application.Features.Group.Queries.GetAllGroups;
 
 public class GetGroupsQueryHandler : IRequestHandler<GetGroupsQuery, List<GroupDto>>
 {
-    public Task<List<GroupDto>> Handle(GetGroupsQuery request, CancellationToken cancellationToken)
+    private readonly IMapper _mapper;
+    private readonly IGroupRepository _groupRepository;
+
+    public GetGroupsQueryHandler(IMapper mapper, IGroupRepository groupRepository)
     {
-        throw new NotImplementedException();
+        _mapper = mapper;
+        _groupRepository = groupRepository;
+    }
+    public async Task<List<GroupDto>> Handle(GetGroupsQuery request, CancellationToken cancellationToken)
+    {
+        var groups = await _groupRepository.GetAllAsync();
+        return _mapper.Map<List<GroupDto>>(groups);
     }
 }
