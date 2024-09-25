@@ -9,6 +9,25 @@
     <PackageReference Include="MediatR" Version="12.4.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Checklist\" />
+    <Folder Include="Features\Checklist\Commands\" />
+    <Folder Include="Features\Checklist\Commands\Create\" />
+    <Folder Include="Features\Checklist\Commands\Delete\" />
+    <Folder Include="Features\Checklist\Commands\Update\" />
+    <Folder Include="Features\Checklist\Queries\" />
+    <Folder Include="Features\Checklist\Queries\GetAll\" />
+    <Folder Include="Features\Checklist\Queries\GetDetails\" />
+    <Folder Include="Features\Item\" />
+    <Folder Include="Features\Item\Commands\" />
+    <Folder Include="Features\Item\Commands\Create\" />
+    <Folder Include="Features\Item\Commands\Delete\" />
+    <Folder Include="Features\Item\Commands\Update\" />
+    <Folder Include="Features\Item\Queries\" />
+    <Folder Include="Features\Item\Queries\GetAll\" />
+    <Folder Include="Features\Item\Queries\GetDetails\" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
