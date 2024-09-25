@@ -4,6 +4,6 @@ namespace ToDoList.Domain.Entities;
 
 public abstract class BaseEntity
 {
-    protected Guid Id { get; set; }
-    protected DateTime? Inserted { get; set; } = DateTime.Now;
+    public Guid Id { get; set; }
+    public DateTime? Inserted { get; set; } = DateTime.Now;
 }

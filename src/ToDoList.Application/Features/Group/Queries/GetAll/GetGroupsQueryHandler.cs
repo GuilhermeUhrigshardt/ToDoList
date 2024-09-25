@@ -3,7 +3,7 @@ using AutoMapper;
 using MediatR;
 using ToDoList.Application.Contracts;
 
-namespace ToDoList.Application.Features.Group.Queries.GetAllGroups;
+namespace ToDoList.Application.Features.Group.Queries.GetAll;
 
 public class GetGroupsQueryHandler : IRequestHandler<GetGroupsQuery, List<GroupDto>>
 {
