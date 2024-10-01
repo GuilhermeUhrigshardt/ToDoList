@@ -2,6 +2,7 @@ using System;
 using AutoMapper;
 using MediatR;
 using ToDoList.Application.Contracts;
+using ToDoList.Application.Exceptions;
 
 namespace ToDoList.Application.Features.Group.Queries.GetDetails;
 
@@ -18,7 +19,7 @@ public class GetGroupDetailsQueryHandler : IRequestHandler<GetGroupDetailsQuery,
     
     public async Task<GroupDetailsDto> Handle(GetGroupDetailsQuery request, CancellationToken cancellationToken)
     {
-        var group = await _groupRepository.GetByIdAsync(request.Id);
+        var group = await _groupRepository.GetByIdAsync(request.Id) ?? throw new NotFoundException(nameof(Group), request.Id);
         return _mapper.Map<GroupDetailsDto>(group);
     }
 }
