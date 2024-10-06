@@ -17,6 +17,7 @@ public static class RepositoryServiceRegistration
         });
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         services.AddScoped<IGroupRepository, GroupRepository>();
+        services.AddScoped<IChecklistRepository, ChecklistRepository>();
 
         return services;
     }

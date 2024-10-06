@@ -8,7 +8,6 @@ public class ToDoDatabaseContext : DbContext
 {
     public ToDoDatabaseContext(DbContextOptions<ToDoDatabaseContext> options) : base(options)
     {
-        
     }
 
     public DbSet<Group> Groups { get; set; }
@@ -24,10 +23,16 @@ public class ToDoDatabaseContext : DbContext
 
     public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
-        foreach (var entry in base.ChangeTracker.Entries<BaseEntity>().Where(q => q.State == EntityState.Added))
+        foreach (var entry in base.ChangeTracker.Entries<BaseEntity>().Where(x => x.State == EntityState.Added))
         {
             entry.Entity.Id = new Guid();
             entry.Entity.Inserted = DateTime.Now;
+        }
+
+        foreach (var item in base.ChangeTracker.Entries<Item>().Where(x => x.State == EntityState.Added))
+        {
+            item.Entity.Completed = false;
+            item.Entity.Important = false;
         }
 
         return base.SaveChangesAsync(cancellationToken);

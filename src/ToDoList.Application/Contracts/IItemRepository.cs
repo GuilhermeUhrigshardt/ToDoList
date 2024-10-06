@@ -5,5 +5,4 @@ namespace ToDoList.Application.Contracts;
 
 public interface IItemRepository : IGenericRepository<Item>
 {
-
 }
