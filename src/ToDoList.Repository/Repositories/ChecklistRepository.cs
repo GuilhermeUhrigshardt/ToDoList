@@ -12,18 +12,18 @@ public class ChecklistRepository : GenericRepository<Checklist>, IChecklistRepos
     {
     }
 
-    public async Task<List<Checklist>> GetChecklistsByGroup(Guid GroupId)
+    public async Task<List<Checklist>> GetChecklistsByGroupAsync(Guid GroupId)
     {
         return await _context.Checklists.Where(x => x.Group != null && x.Group.Id == GroupId).ToListAsync();
     }
 
-    public async Task<Checklist?> GetChecklistWithItems(Guid Id)
+    public async Task<Checklist?> GetChecklistWithItemsAsync(Guid Id)
     {
         return await _context.Checklists.Where(x => x.Id == Id).Include(x => x.Items).FirstOrDefaultAsync();
     }
 
-    public async Task<int> GetNextOrder(Guid Id)
+    public async Task<int> GetNextOrderAsync(Guid Id)
     {
-        return await _context.Items.AsNoTracking().Where(x => x.ChecklistId == Id).Select(x => x.Order).MaxAsync() + 1 ?? 0;
+        return await _context.Items.AsNoTracking().Where(x => x.ChecklistId == Id).Select(x => x.Order).MaxAsync() + 1;
     }
 }

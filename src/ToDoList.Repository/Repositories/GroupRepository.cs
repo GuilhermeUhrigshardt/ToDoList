@@ -12,7 +12,7 @@ public class GroupRepository : GenericRepository<Group>, IGroupRepository
     {
     }
 
-    public async Task<bool> IsGroupUnique(string name)
+    public async Task<bool> IsGroupUniqueAsync(string name)
     {
         return ! await _context.Groups.AnyAsync(x => x.Name == name);
     }

@@ -24,6 +24,6 @@ public class CreateGroupCommandValidator : AbstractValidator<CreateGroupCommand>
 
     private Task<bool> GroupNameUnique(CreateGroupCommand command, CancellationToken token)
     {
-        return _groupRepository.IsGroupUnique(command.Name);
+        return _groupRepository.IsGroupUniqueAsync(command.Name);
     }
 }

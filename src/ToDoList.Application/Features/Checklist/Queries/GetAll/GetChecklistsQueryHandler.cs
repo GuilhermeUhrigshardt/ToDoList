@@ -18,7 +18,7 @@ public class GetChecklistsQueryHandler : IRequestHandler<GetChecklistsQuery, Lis
 
     public async Task<List<ChecklistDto>> Handle(GetChecklistsQuery request, CancellationToken cancellationToken)
     {
-        var checklists = await _repository.GetChecklistsByGroup(request.GroupId);
+        var checklists = await _repository.GetChecklistsByGroupAsync(request.GroupId);
         return _mapper.Map<List<ChecklistDto>>(checklists);
     }
 }

@@ -6,7 +6,7 @@ namespace ToDoList.Application.Contracts;
 
 public interface IChecklistRepository : IGenericRepository<Checklist>
 {
-    Task<List<Checklist>> GetChecklistsByGroup(Guid GroupId);
-    Task<Checklist?> GetChecklistWithItems(Guid Id);
-    Task<int> GetNextOrder(Guid Id);
+    Task<List<Checklist>> GetChecklistsByGroupAsync(Guid GroupId);
+    Task<Checklist?> GetChecklistWithItemsAsync(Guid Id);
+    Task<int> GetNextOrderAsync(Guid Id);
 }

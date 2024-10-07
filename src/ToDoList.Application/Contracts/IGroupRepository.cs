@@ -5,5 +5,5 @@ namespace ToDoList.Application.Contracts;
 
 public interface IGroupRepository : IGenericRepository<Group>
 {
-    Task<bool> IsGroupUnique(string Name);
+    Task<bool> IsGroupUniqueAsync(string Name);
 }
