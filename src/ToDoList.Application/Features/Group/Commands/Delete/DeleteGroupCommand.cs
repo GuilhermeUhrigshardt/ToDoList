@@ -2,4 +2,4 @@ using MediatR;
 
 namespace ToDoList.Application.Features.Group.Commands.Delete;
 
-public record DeleteGroupCommand(Guid Id) : IRequest<Guid>;
+public sealed record DeleteGroupCommand(Guid Id) : IRequest<Guid>;
