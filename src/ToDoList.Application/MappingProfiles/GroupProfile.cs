@@ -1,5 +1,6 @@
 using System;
 using AutoMapper;
+using ToDoList.Application.Features.Group.Commands.Update;
 using ToDoList.Application.Features.Group.Queries.GetAll;
 using ToDoList.Application.Features.Group.Queries.GetDetails;
 using ToDoList.Domain.Entities;
@@ -12,5 +13,6 @@ public class GroupProfile : Profile
     {
         CreateMap<GroupDto, Group>().ReverseMap();
         CreateMap<Group, GroupDetailsDto>();
+        CreateMap<Group, GroupUpdateDto>();
     }
 }

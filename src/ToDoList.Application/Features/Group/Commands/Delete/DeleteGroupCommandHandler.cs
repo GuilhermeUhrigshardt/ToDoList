@@ -19,7 +19,8 @@ public class DeleteGroupCommandHandler : IRequestHandler<DeleteGroupCommand, Gui
     public async Task<Guid> Handle(DeleteGroupCommand request, CancellationToken cancellationToken)
     {
         var groupToDelete = await _groupRepository.GetByIdAsync(request.Id) ?? throw new NotFoundException(nameof(Group), request.Id);
-        await _groupRepository.DeleteAsync(groupToDelete);
+        if (!await _groupRepository.DeleteAsync(groupToDelete))
+            throw new NotDeletedException(nameof(Group), request.Id);
         return groupToDelete.Id;
     }
 }

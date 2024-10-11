@@ -2,6 +2,7 @@ using System;
 using AutoMapper;
 using MediatR;
 using ToDoList.Application.Contracts;
+using ToDoList.Application.Exceptions;
 
 namespace ToDoList.Application.Features.Group.Commands.Update;
 
@@ -18,8 +19,8 @@ public class UpdateGroupCommandHandler : IRequestHandler<UpdateGroupCommand, Gui
 
     public async Task<Guid> Handle(UpdateGroupCommand request, CancellationToken cancellationToken)
     {
-        var groupToUpdate = _mapper.Map<Domain.Entities.Group>(request);
-        await _groupRepository.UpdateAsync(groupToUpdate);
-        return groupToUpdate.Id;
+        var groupToUpdate = _mapper.Map<Domain.Entities.Group>(request.Group);
+        var updatedGroup = await _groupRepository.UpdateAsync(groupToUpdate) ?? throw new NotUpdatedException(nameof(Domain.Entities.Group), request.Group.Id);
+        return updatedGroup.Id;
     }
 }
