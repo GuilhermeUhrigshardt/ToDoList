@@ -20,12 +20,12 @@ public class CreateGroupCommandHandler : IRequestHandler<CreateGroupCommand, Gui
     public async Task<Guid> Handle(CreateGroupCommand request, CancellationToken cancellationToken)
     {
         var validator = new CreateGroupCommandValidator(_groupRepository);
-        var validationResult = await validator.ValidateAsync(request);
+        var validationResult = await validator.ValidateAsync(request, cancellationToken);
         if (validationResult.Errors.Any())
             throw new BadRequestException($"Invalid Group", validationResult);
 
-        var groupToCreate = _mapper.Map<Domain.Entities.Group>(request);
-        await _groupRepository.CreateAsync(groupToCreate);
-        return groupToCreate.Id;
+        var groupToCreate = _mapper.Map<Domain.Entities.Group>(request.Group);
+        var groupCreated = await _groupRepository.CreateAsync(groupToCreate);
+        return groupCreated.Id;
     }
 }

@@ -12,7 +12,7 @@ public class CreateGroupCommandValidator : AbstractValidator<CreateGroupCommand>
     {
         _groupRepository = groupRepository;
 
-        RuleFor(p => p.Name)
+        RuleFor(p => p.Group.Name)
             .NotEmpty().WithMessage("{PropertyName} is required")
             .NotNull()
             .MaximumLength(100).WithMessage("{PropertyName} must not exceed 100 characters");
@@ -24,6 +24,6 @@ public class CreateGroupCommandValidator : AbstractValidator<CreateGroupCommand>
 
     private Task<bool> GroupNameUnique(CreateGroupCommand command, CancellationToken token)
     {
-        return _groupRepository.IsGroupUniqueAsync(command.Name);
+        return _groupRepository.IsGroupUniqueAsync(command.Group.Name);
     }
 }

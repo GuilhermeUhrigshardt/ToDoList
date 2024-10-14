@@ -11,13 +11,6 @@
     <PackageReference Include="MediatR" Version="12.4.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Item\Commands\Create\" />
-    <Folder Include="Features\Item\Commands\Delete\" />
-    <Folder Include="Features\Item\Commands\Update\" />
-    <Folder Include="Features\Item\Queries\GetAll\" />
-  </ItemGroup>
-
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
