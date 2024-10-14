@@ -6,6 +6,6 @@ namespace ToDoList.Application.Contracts;
 public interface IGroupRepository : IGenericRepository<Group>
 {
     Task<bool> IsGroupUniqueAsync(string Name);
-    Task<Group?> GetGroupWithChecklists(Guid Id);
-    Task<Group?> GetGroupWithChecklistsAndItems(Guid Id);
+    Task<Group?> GetGroupWithChecklistsAsync(Guid Id);
+    Task<Group?> GetGroupWithChecklistsAndItemsAsync(Guid Id);
 }
