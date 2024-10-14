@@ -21,9 +21,4 @@ public class ChecklistRepository : GenericRepository<Checklist>, IChecklistRepos
     {
         return await _context.Checklists.Where(x => x.Id == Id).Include(x => x.Items).FirstOrDefaultAsync();
     }
-
-    public async Task<int> GetNextOrderAsync(Guid Id)
-    {
-        return await _context.Items.AsNoTracking().Where(x => x.ChecklistId == Id).Select(x => x.Order).MaxAsync() + 1;
-    }
 }

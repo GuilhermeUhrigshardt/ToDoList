@@ -12,7 +12,7 @@ public class CreateItemCommandValidator : AbstractValidator<CreateItemCommand>
         RuleFor(p => p.Item.Title)
             .NotEmpty().WithMessage("{PropertyName} is required")
             .NotNull()
-            .MaximumLength(100).WithMessage("{PropertyName} must not exceed 100 characters");
+            .MaximumLength(200).WithMessage("{PropertyName} must not exceed 200 characters");
 
         RuleFor(p => p.Item.Note)
             .MaximumLength(400).WithMessage("{PropertyName} must not exceed 400 characters");

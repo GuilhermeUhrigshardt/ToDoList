@@ -15,5 +15,8 @@ public class ItemConfiguration : IEntityTypeConfiguration<Item>
         builder.Property(x => x.Title)
             .IsRequired()
             .HasMaxLength(200);
+
+        builder.Property(x => x.Note)
+            .HasMaxLength(400);
     }
 }

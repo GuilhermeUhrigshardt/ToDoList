@@ -23,4 +23,9 @@ public class ItemRepository : GenericRepository<Item>, IItemRepository
         var checklistId = await _context.Items.Where(x => x.Id == Id).Select(x => x.ChecklistId).FirstOrDefaultAsync();
         return await _context.Items.Where(x => x.ChecklistId == checklistId).ToListAsync();
     }
+
+    public async Task<int> GetNextOrderAsync(Guid ChecklistId)
+    {
+        return await _context.Items.AsNoTracking().Where(x => x.ChecklistId == ChecklistId).Select(x => x.Order).MaxAsync() + 1;
+    }
 }

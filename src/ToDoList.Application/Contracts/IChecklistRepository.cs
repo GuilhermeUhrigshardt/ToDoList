@@ -8,5 +8,4 @@ public interface IChecklistRepository : IGenericRepository<Checklist>
 {
     Task<List<Checklist>> GetChecklistsByGroupAsync(Guid GroupId);
     Task<Checklist?> GetChecklistWithItemsAsync(Guid Id);
-    Task<int> GetNextOrderAsync(Guid Id);
 }

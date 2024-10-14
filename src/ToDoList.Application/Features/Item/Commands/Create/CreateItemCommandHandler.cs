@@ -25,6 +25,10 @@ public class CreateItemCommandHandler : IRequestHandler<CreateItemCommand, Guid>
             throw new BadRequestException($"Invalid Item", validationResult);
 
         var requestToCreate = _mapper.Map<Domain.Entities.Item>(request.Item);
+
+        if (requestToCreate.Order == 0)
+            requestToCreate.Order = await _itemRepository.GetNextOrderAsync(request.Item.ChecklistId);
+
         var requestCreated = await _itemRepository.CreateAsync(requestToCreate);
         return requestCreated.Id;
     }

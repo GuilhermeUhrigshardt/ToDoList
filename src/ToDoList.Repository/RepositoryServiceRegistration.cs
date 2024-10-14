@@ -15,9 +15,11 @@ public static class RepositoryServiceRegistration
         services.AddDbContext<ToDoDatabaseContext>(options => {
             options.UseSqlServer(configuration.GetConnectionString("ToDoDatabaseConnectionString"));
         });
+
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         services.AddScoped<IGroupRepository, GroupRepository>();
         services.AddScoped<IChecklistRepository, ChecklistRepository>();
+        services.AddScoped<IItemRepository, ItemRepository>();
 
         return services;
     }
