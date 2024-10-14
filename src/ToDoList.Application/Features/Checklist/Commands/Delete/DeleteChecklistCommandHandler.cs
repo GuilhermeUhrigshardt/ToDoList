@@ -1,6 +1,6 @@
 using System;
 using MediatR;
-using ToDoList.Application.Contracts;
+using ToDoList.Application.Contracts.Repository;
 using ToDoList.Application.Exceptions;
 using ToDoList.Domain.Entities;
 

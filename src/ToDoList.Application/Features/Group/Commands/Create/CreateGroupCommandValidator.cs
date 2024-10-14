@@ -1,6 +1,6 @@
 using System;
 using FluentValidation;
-using ToDoList.Application.Contracts;
+using ToDoList.Application.Contracts.Repository;
 
 namespace ToDoList.Application.Features.Group.Commands.Create;
 

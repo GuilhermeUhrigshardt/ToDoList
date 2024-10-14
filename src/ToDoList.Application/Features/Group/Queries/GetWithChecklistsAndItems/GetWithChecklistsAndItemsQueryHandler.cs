@@ -1,8 +1,6 @@
-using System;
-using System.Runtime.CompilerServices;
 using AutoMapper;
 using MediatR;
-using ToDoList.Application.Contracts;
+using ToDoList.Application.Contracts.Repository;
 using ToDoList.Application.Exceptions;
 
 namespace ToDoList.Application.Features.Group.Queries.GetWithChecklistsAndItems;

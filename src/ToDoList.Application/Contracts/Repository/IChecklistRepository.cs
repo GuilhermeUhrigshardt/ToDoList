@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics.Contracts;
 using ToDoList.Domain.Entities;
 
-namespace ToDoList.Application.Contracts;
+namespace ToDoList.Application.Contracts.Repository;
 
 public interface IChecklistRepository : IGenericRepository<Checklist>
 {

@@ -1,7 +1,6 @@
 using System;
-using System.Security.Cryptography.X509Certificates;
 using Microsoft.EntityFrameworkCore;
-using ToDoList.Application.Contracts;
+using ToDoList.Application.Contracts.Repository;
 using ToDoList.Domain.Entities;
 using ToDoList.Repository.DatabaseContext;
 

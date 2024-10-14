@@ -1,7 +1,7 @@
 using System;
 using AutoMapper;
 using MediatR;
-using ToDoList.Application.Contracts;
+using ToDoList.Application.Contracts.Repository;
 
 namespace ToDoList.Application.Features.Checklist.Queries.GetAll;
 

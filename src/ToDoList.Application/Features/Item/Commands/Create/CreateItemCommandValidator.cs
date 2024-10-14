@@ -1,7 +1,5 @@
 using System;
-using System.Data;
 using FluentValidation;
-using ToDoList.Application.Contracts;
 
 namespace ToDoList.Application.Features.Item.Commands.Create;
 

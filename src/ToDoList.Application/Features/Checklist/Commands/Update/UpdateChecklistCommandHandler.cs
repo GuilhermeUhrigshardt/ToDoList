@@ -1,9 +1,8 @@
 using System;
 using AutoMapper;
 using MediatR;
-using ToDoList.Application.Contracts;
+using ToDoList.Application.Contracts.Repository;
 using ToDoList.Application.Exceptions;
-using ToDoList.Domain.Entities;
 
 namespace ToDoList.Application.Features.Checklist.Commands.Update;
 

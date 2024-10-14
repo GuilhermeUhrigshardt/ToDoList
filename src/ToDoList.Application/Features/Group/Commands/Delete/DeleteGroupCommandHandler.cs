@@ -2,7 +2,7 @@ using System;
 using System.Windows.Input;
 using AutoMapper;
 using MediatR;
-using ToDoList.Application.Contracts;
+using ToDoList.Application.Contracts.Repository;
 using ToDoList.Application.Exceptions;
 
 namespace ToDoList.Application.Features.Group.Commands.Delete;

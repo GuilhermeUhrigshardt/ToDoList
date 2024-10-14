@@ -1,6 +1,6 @@
 using System;
 using MediatR;
-using ToDoList.Application.Contracts;
+using ToDoList.Application.Contracts.Repository;
 
 namespace ToDoList.Application.Features.Item.Commands.Reorder;
 

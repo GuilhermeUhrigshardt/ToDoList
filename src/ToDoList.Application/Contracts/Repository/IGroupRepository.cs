@@ -1,7 +1,7 @@
 using System;
 using ToDoList.Domain.Entities;
 
-namespace ToDoList.Application.Contracts;
+namespace ToDoList.Application.Contracts.Repository;
 
 public interface IGroupRepository : IGenericRepository<Group>
 {
