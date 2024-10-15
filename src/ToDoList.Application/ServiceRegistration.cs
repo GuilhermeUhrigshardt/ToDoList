@@ -8,7 +8,7 @@ namespace ToDoList.Application;
 
 public static class ServiceRegistration
 {
-    public static IServiceCollection AddServices(this IServiceCollection services)
+    public static IServiceCollection AddApplicationServices(this IServiceCollection services)
     {
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));

@@ -13,7 +13,7 @@ public static class RepositoryServiceRegistration
     public static IServiceCollection AddRepositoryServices(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<ToDoDatabaseContext>(options => {
-            options.UseSqlServer(configuration.GetConnectionString("ToDoDatabaseConnectionString"));
+            options.UseSqlServer(configuration.GetConnectionString("ToDoListDatabaseConnectionString"));
         });
 
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
