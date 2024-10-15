@@ -3,6 +3,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Serilog;
+using ToDoList.Application.Contracts.Logger;
+using ToDoList.Infrastructure.Logger;
 
 namespace ToDoList.Infrastructure;
 
@@ -16,6 +18,8 @@ public static class InfrastructureServicesResgistration
             loggingBuilder.ClearProviders();
             loggingBuilder.AddSerilog();
         });
+
+        services.AddScoped(typeof(IApplicationLogger<>), typeof(ApplicationLogger<>));
 
         return services;
     }

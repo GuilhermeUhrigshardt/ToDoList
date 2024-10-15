@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 
 namespace ToDoList.Infrastructure.Logger;
 
-public class ApplicationLoggerLogger<T>(ILogger<T> logger) : IApplicationLogger<T>
+public class ApplicationLogger<T>(ILogger<T> logger) : IApplicationLogger<T>
 {
     private readonly ILogger<T> _logger = logger;
 
