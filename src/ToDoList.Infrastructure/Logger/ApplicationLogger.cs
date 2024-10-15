@@ -10,16 +10,16 @@ public class ApplicationLoggerLogger<T>(ILogger<T> logger) : IApplicationLogger<
 
     public void LogError(Exception exception, string message)
     {
-        _logger.LogError(exception, message);
+        _logger.LogError(exception, "{message}", message);
     }
 
     public void LogInformation(string message)
     {
-        _logger.LogInformation(message);
+        _logger.LogInformation("{message}", message);
     }
 
     public void LogWarning(string message)
     {
-        _logger.LogWarning(message);
+        _logger.LogWarning("{message}", message);
     }
 }
