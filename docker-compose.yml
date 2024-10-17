@@ -1,0 +1,22 @@
+services:
+  todolist-api:
+    container_name: todolist-api-container
+    image: guilhermeuhrigshardt/todolist-api:latest
+    environment:
+      - SQLSERVER_PASSWORD=sqlserverpw
+    ports:
+      - 5153:80
+    depends_on:
+      - todolist-sqlserver
+  todolist-sqlserver:
+    container_name: todolist-sqlserver-container
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SQLSERVER_PASSWORD=sqlserverpw
+    ports:
+      - 1433:1433
+    volumes:
+      - ssdata:/var/lib/sqlserver/data
+volumes:
+  ssdata:
