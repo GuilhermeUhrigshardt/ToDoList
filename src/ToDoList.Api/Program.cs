@@ -1,7 +1,6 @@
 using ToDoList.Infrastructure;
 using ToDoList.Application;
 using ToDoList.Repository;
-using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
