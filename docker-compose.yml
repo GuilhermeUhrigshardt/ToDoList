@@ -1,22 +1,42 @@
+version: '3.8'
+
 services:
   todolist-api:
     container_name: todolist-api-container
     image: guilhermeuhrigshardt/todolist-api:latest
+    build:
+      context: .
+      dockerfile: src/ToDoList.Api/Dockerfile
     environment:
-      - SQLSERVER_PASSWORD=sqlserverpw
+     - ASPNETCORE_ENVIRONMENT=Development
+     - ConnectionStrings__DefaultConnection=Server=todolist-sqlserver,1433;Database=ToDoList;User=sa;Password=SqlPw321!;TrustServerCertificate=True;MultipleActiveResultSets=true
+     - ASPNETCORE_URLS=http://+:80
     ports:
-      - 5153:80
+     - 5153:80
     depends_on:
-      - todolist-sqlserver
+     - todolist-sqlserver
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+
   todolist-sqlserver:
     container_name: todolist-sqlserver-container
     image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
       - ACCEPT_EULA=Y
-      - SQLSERVER_PASSWORD=sqlserverpw
+      - SA_PASSWORD=SqlPw321!
     ports:
-      - 1433:1433
+      - 14330:1433
     volumes:
-      - ssdata:/var/lib/sqlserver/data
+      - todolist_ssdata:/var/opt/mssql
+    healthcheck:
+      test: ["CMD", "sqlcmd", "-S", "todolist-sqlserver", "-U", "sa", "-P", "SqlPw321!", "-Q", "SELECT 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+  
 volumes:
-  ssdata:
+  todolist_ssdata:

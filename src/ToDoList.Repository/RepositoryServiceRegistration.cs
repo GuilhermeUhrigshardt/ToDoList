@@ -13,8 +13,19 @@ public static class RepositoryServiceRegistration
     public static IServiceCollection AddRepositoryServices(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddDbContext<ToDoDatabaseContext>(options => {
-            options.UseSqlServer(configuration.GetConnectionString("ToDoListDatabaseConnectionString"));
+            options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
         });
+
+        using (var serviceProvider = services.BuildServiceProvider())
+        {
+            var context = serviceProvider.GetRequiredService<ToDoDatabaseContext>();
+            var pendingMigrations = context.Database.GetPendingMigrations();
+
+            if (pendingMigrations.Any())
+            {
+                context.Database.Migrate();
+            }
+        }
 
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         services.AddScoped<IGroupRepository, GroupRepository>();
