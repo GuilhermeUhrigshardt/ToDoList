@@ -65,7 +65,7 @@ public class ItemsController(IMediator mediator) : ControllerBase
         return NoContent();
     }
 
-    [HttpPut("Reorder/{id}/{order}")]
+    [HttpPut("Reorder")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
