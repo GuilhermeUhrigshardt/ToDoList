@@ -40,8 +40,8 @@ public class ItemsController(IMediator mediator) : ControllerBase
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesDefaultResponseType]
-    public async Task<ActionResult> Create(ItemCreateDto item) {
-        var response = await _mediator.Send(new CreateItemCommand(item));
+    public async Task<ActionResult> Create(CreateItemCommand item) {
+        var response = await _mediator.Send(item);
         return CreatedAtAction(nameof(Get), new { Id = response });
     }
 
@@ -50,8 +50,8 @@ public class ItemsController(IMediator mediator) : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesDefaultResponseType]
-    public async Task<ActionResult> Update(ItemUpdateDto item) {
-        await _mediator.Send(new UpdateItemCommand(item));
+    public async Task<ActionResult> Update(UpdateItemCommand item) {
+        await _mediator.Send(item);
         return NoContent();
     }
 
@@ -70,9 +70,9 @@ public class ItemsController(IMediator mediator) : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesDefaultResponseType]
-    public async Task<ActionResult> Reorder(Guid id, int order)
+    public async Task<ActionResult> Reorder(ReorderItemsCommand item)
     {
-        await _mediator.Send(new ReorderItemsCommand(id, order));
+        await _mediator.Send(item);
         return NoContent();
     }
 }

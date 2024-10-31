@@ -64,9 +64,9 @@ public class GroupsController(IMediator mediator) : ControllerBase
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesDefaultResponseType]
-    public async Task<ActionResult> Create(GroupCreateDto group)
+    public async Task<ActionResult> Create(CreateGroupCommand group)
     {
-        var response = await _mediator.Send(new CreateGroupCommand(group));
+        var response = await _mediator.Send(group);
         return CreatedAtAction(nameof(Get), new { id = response });
     }
 
@@ -75,9 +75,9 @@ public class GroupsController(IMediator mediator) : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesDefaultResponseType]
-    public async Task<ActionResult> Update(GroupUpdateDto group)
+    public async Task<ActionResult> Update(UpdateGroupCommand group)
     {
-        await _mediator.Send(new UpdateGroupCommand(group));
+        await _mediator.Send(group);
         return NoContent();
     }
 

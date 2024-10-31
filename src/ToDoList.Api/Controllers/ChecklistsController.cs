@@ -53,9 +53,9 @@ public class ChecklistsController(IMediator mediator) : ControllerBase
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesDefaultResponseType]
-    public async Task<ActionResult> Create(ChecklistCreateDto checklist)
+    public async Task<ActionResult> Create(CreateChecklistCommand checklist)
     {
-        var response = await _mediator.Send(new CreateChecklistCommand(checklist));
+        var response = await _mediator.Send(checklist);
         return CreatedAtAction(nameof(Get), new { Id = response });
     }
 
@@ -64,9 +64,9 @@ public class ChecklistsController(IMediator mediator) : ControllerBase
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesDefaultResponseType]
-    public async Task<ActionResult> Update(ChecklistUpdateDto checklist)
+    public async Task<ActionResult> Update(UpdateChecklistCommand checklist)
     {
-        await _mediator.Send(new UpdateChecklistCommand(checklist));
+        await _mediator.Send(checklist);
         return NoContent();
     }
 
