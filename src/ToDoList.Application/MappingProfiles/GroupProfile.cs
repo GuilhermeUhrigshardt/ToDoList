@@ -20,5 +20,7 @@ public class GroupProfile : Profile
         CreateMap<Group, GroupCreateDto>();
         CreateMap<Group, GroupWithChecklistsDto>();
         CreateMap<Group, GroupWithChecklistsAndItemsDto>();
+        CreateMap<CreateGroupCommand, Group>();
+        CreateMap<UpdateGroupCommand, Group>();
     }
 }

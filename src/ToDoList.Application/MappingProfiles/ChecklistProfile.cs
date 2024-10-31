@@ -18,5 +18,7 @@ public class ChecklistProfile : Profile
         CreateMap<Checklist, ChecklistDto>();
         CreateMap<Checklist, ChecklistWithItemsDto>();
         CreateMap<Checklist, ChecklistDetailsDto>().ReverseMap();
+        CreateMap<CreateChecklistCommand, Checklist>();
+        CreateMap<UpdateChecklistCommand, Checklist>();
     }
 }

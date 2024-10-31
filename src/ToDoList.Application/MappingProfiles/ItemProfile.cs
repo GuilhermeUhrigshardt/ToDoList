@@ -16,5 +16,7 @@ public class ItemProfile : Profile
         CreateMap<Item, ItemDetailsDto>();
         CreateMap<Item, ItemUpdateDto>();
         CreateMap<Item, ItemCreateDto>();
+        CreateMap<CreateItemCommand, Item>();
+        CreateMap<UpdateItemCommand, Item>();
     }
 }
