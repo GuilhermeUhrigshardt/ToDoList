@@ -1,3 +1,3 @@
 namespace ToDoList.Application.Features.Checklist.Commands.Update;
 
-public sealed record ChecklistUpdateDto(Guid Id, string Name);
+public sealed record ChecklistUpdateDto(Guid Id, string Name, Guid GroupId);

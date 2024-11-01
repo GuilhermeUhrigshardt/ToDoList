@@ -6,16 +6,10 @@ using ToDoList.Application.Exceptions;
 
 namespace ToDoList.Application.Features.Group.Commands.Create;
 
-public class CreateGroupCommandHandler : IRequestHandler<CreateGroupCommand, Guid>
+public class CreateGroupCommandHandler(IMapper mapper, IGroupRepository groupRepository) : IRequestHandler<CreateGroupCommand, Guid>
 {
-    private readonly IMapper _mapper;
-    private readonly IGroupRepository _groupRepository;
-
-    public CreateGroupCommandHandler(IMapper mapper, IGroupRepository groupRepository)
-    {
-        _mapper = mapper;
-        _groupRepository = groupRepository;
-    }
+    private readonly IMapper _mapper = mapper;
+    private readonly IGroupRepository _groupRepository = groupRepository;
 
     public async Task<Guid> Handle(CreateGroupCommand request, CancellationToken cancellationToken)
     {

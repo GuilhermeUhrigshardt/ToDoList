@@ -6,16 +6,11 @@ using ToDoList.Application.Exceptions;
 
 namespace ToDoList.Application.Features.Checklist.Commands.Create;
 
-public class CreateChecklistCommandHandler : IRequestHandler<CreateChecklistCommand, Guid>
+public class CreateChecklistCommandHandler(IMapper mapper, IChecklistRepository checklistRepository, IGroupRepository groupRepository) : IRequestHandler<CreateChecklistCommand, Guid>
 {
-    private readonly IMapper _mapper;
-    private readonly IChecklistRepository _checklistRepository;
-
-    public CreateChecklistCommandHandler(IMapper mapper, IChecklistRepository checklistRepository)
-    {
-        _mapper = mapper;
-        _checklistRepository = checklistRepository;
-    }
+    private readonly IMapper _mapper = mapper;
+    private readonly IChecklistRepository _checklistRepository = checklistRepository;
+    private readonly IGroupRepository _groupRepository = groupRepository;
 
     public async Task<Guid> Handle(CreateChecklistCommand request, CancellationToken cancellationToken)
     {
