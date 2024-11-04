@@ -4,14 +4,9 @@ using ToDoList.Application.Contracts.Repository;
 
 namespace ToDoList.Application.Features.Item.Commands.Reorder;
 
-public class ReorderItemsCommandHandler : IRequestHandler<ReorderItemsCommand, int>
+public class ReorderItemsCommandHandler(IItemRepository repository) : IRequestHandler<ReorderItemsCommand, int>
 {
-    private readonly IItemRepository _repository;
-
-    public ReorderItemsCommandHandler(IItemRepository repository)
-    {
-        _repository = repository;
-    }
+    private readonly IItemRepository _repository = repository;
 
     public async Task<int> Handle(ReorderItemsCommand request, CancellationToken cancellationToken)
     {
