@@ -15,7 +15,7 @@ public class CreateGroupCommandHandler(IMapper mapper, IGroupRepository groupRep
     {
         var validator = new CreateGroupCommandValidator(_groupRepository);
         var validationResult = await validator.ValidateAsync(request, cancellationToken);
-        if (validationResult.Errors.Any())
+        if (validationResult.Errors.Count > 0)
             throw new BadRequestException($"Invalid Group", validationResult);
 
         var groupToCreate = _mapper.Map<Domain.Entities.Group>(request.Group);

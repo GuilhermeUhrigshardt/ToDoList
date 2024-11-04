@@ -1,5 +1,5 @@
-using ToDoList.Infrastructure;
 using ToDoList.Application;
+using ToDoList.Infrastructure;
 using ToDoList.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,8 +11,9 @@ builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddRepositoryServices(builder.Configuration);
 
-builder.Services.AddCors(options => {
-    options.AddPolicy("all", builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("all", corsPolicyBuilder => corsPolicyBuilder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
 });
 
 builder.Services.AddEndpointsApiExplorer();
