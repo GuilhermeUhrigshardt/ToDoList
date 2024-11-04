@@ -35,17 +35,17 @@ This project is built using .NET 8 and follows modern software development pract
     cd ToDoList
     ```
 
-### Installing and Running the Application
+### Running the Application
 To run the application, use the following command:
-    ```
-    docker compose up
-    ```
+```bash
+docker compose up
+```
 
 ### Running Tests
 To run the unit tests, use the following command:
-    ```
-    dotnet test
-    ```
+```bash
+dotnet test
+```
 
 ## Purpose
 
