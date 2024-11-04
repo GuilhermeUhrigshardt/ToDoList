@@ -34,20 +34,16 @@ This project is built using .NET 8 and follows modern software development pract
     ```bash
     cd ToDoList
     ```
-3. Restore the dependencies:
-    ```bash
-    dotnet restore
-    ```
 
 ### Installing and Running the Application
 To run the application, use the following command:
-    ```bash
+    ```
     docker compose up
     ```
 
 ### Running Tests
 To run the unit tests, use the following command:
-    ```bash
+    ```
     dotnet test
     ```
 
