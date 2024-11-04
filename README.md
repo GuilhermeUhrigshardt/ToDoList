@@ -1,5 +1,4 @@
-# Project Name
-ToDo List REST API
+# ToDo List API
 
 ## Overview
 
