@@ -6,18 +6,20 @@ This project is built using .NET 8 and follows modern software development pract
 
 ## Design Patterns
 
-- 1. Repository Pattern
-- 2. Dependency Injection
-- 3. CQRS (Command Query Responsibility Segregation)
-- 4. Mediator Pattern
+1. Repository Pattern
+2. Dependency Injection
+3. CQRS (Command Query Responsibility Segregation)
+4. Mediator Pattern
 
 ## Libraries
 
-- 1. Entity Framework Core
-- 2. MediatR
-- 3. AutoMapper
-- 4. FluentValidation
-- 5. xUnit
+1. Entity Framework Core
+2. MediatR
+3. AutoMapper
+4. FluentValidation
+5. xUnit
+6. Moq
+7. Shouldly
 
 ## Getting Started
 
