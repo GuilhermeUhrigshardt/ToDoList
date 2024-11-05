@@ -6,14 +6,9 @@ using ToDoList.Repository.DatabaseContext;
 
 namespace ToDoList.Repository.Repositories;
 
-public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
+public class GenericRepository<T>(ToDoDatabaseContext context) : IGenericRepository<T> where T : BaseEntity
 {
-    protected readonly ToDoDatabaseContext _context;
-
-    public GenericRepository(ToDoDatabaseContext context)
-    {
-        _context = context;
-    }
+    protected readonly ToDoDatabaseContext _context = context;
 
     public async Task<T> CreateAsync(T entity)
     {

@@ -35,10 +35,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Group\" />
     <Folder Include="Features\Checklist\" />
+    <Folder Include="Features\Group\Commands\" />
     <Folder Include="Features\Item\" />
-    <Folder Include="Mocks\" />
   </ItemGroup>
 
 </Project>
